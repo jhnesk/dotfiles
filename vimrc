@@ -13,12 +13,14 @@ filetype plugin on
 " INTERFACE:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set background=dark
+set background=light
 syntax on
 filetype on
 set laststatus=2 " always show statusline
 set ruler " show the ruler
 set virtualedit+=block " allow virtual block mode to go outside lines
+set relativenumber
+set number
 
 " jump to last position when reopening a file:
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -54,7 +56,7 @@ filetype plugin indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SHORTCUTS:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <F8> :make<CR>
+map <F5> :make<CR>
 map <F12> :ctags -R .<CR>
 
 " fold/unfold all folds...
@@ -65,10 +67,11 @@ map F :let &fen = !&fen<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " C:
-au FileType c setl tabstop=8 shiftwidth=8
+autocmd FileType c setl tabstop=8 shiftwidth=8
 
 " XML HTML:
 au FileType html,xml setl tabstop=2 shiftwidth=2
+au FileType xml :map <F5> :.,$!xmllint --format -<CR>
 
 " PHP:
 au FileType php compiler php
@@ -81,20 +84,10 @@ au FileType haskell setl nocindent
 " LaTeX:
 au FileType tex setl makeprg=pdflatex\ %\ &&\ bibtex\ `basename\ %\ .tex`\ &&\ pdflatex\ %
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" AUTO COMPLETION:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set omnifunc=syntaxcomplete#Complete
-autocmd Filetype java setlocal omnifunc=javacomplete#Complete
-
-" Ctrl+Space for omni completion or word completion
-inoremap <expr> <C-Space> pumvisible() \|\| &omnifunc == '' ?
-\ "\<lt>C-n>" :
-\ "\<lt>C-x>\<lt>C-o><c-r>=pumvisible() ?" .
-\ "\"\\<lt>c-n>\\<lt>c-p>\\<lt>c-n>\" :" .
-\ "\" \\<lt>bs>\\<lt>C-n>\"\<CR>"
-imap <C-@> <C-Space>
-
 " Open quick fix window on error
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+au FileType gitcommit set spell spelllang=en_us
+au FileType gitcommit set nonumber
+au FileType gitcommit set norelativenumber
