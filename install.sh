@@ -14,5 +14,6 @@ popd  > /dev/null
 
 ln -si ${SCRIPT_PATH}/bashrc ${HOME}/.bashrc
 ln -si ${SCRIPT_PATH}/vimrc ${HOME}/.vimrc
+ln -si ${SCRIPT_PATH}/vim ${HOME}/.vim
 
 

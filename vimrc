@@ -13,7 +13,7 @@ filetype plugin on
 " INTERFACE:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set background=light
+set background=dark
 syntax on
 filetype on
 set laststatus=2 " always show statusline
@@ -62,32 +62,6 @@ map <F12> :ctags -R .<CR>
 " fold/unfold all folds...
 map F :let &fen = !&fen<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FILETYPE SPECIFIC:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" C:
-autocmd FileType c setl tabstop=8 shiftwidth=8
-
-" XML HTML:
-au FileType html,xml setl tabstop=2 shiftwidth=2
-au FileType xml :map <F5> :.,$!xmllint --format -<CR>
-
-" PHP:
-au FileType php compiler php
-
-" HASKELL:
-au FileType haskell setl makeprg=ghc\ --make\ %
-au FileType haskell setl expandtab
-au FileType haskell setl nocindent
-
-" LaTeX:
-au FileType tex setl makeprg=pdflatex\ %\ &&\ bibtex\ `basename\ %\ .tex`\ &&\ pdflatex\ %
-
 " Open quick fix window on error
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
-
-au FileType gitcommit set spell spelllang=en_us
-au FileType gitcommit set nonumber
-au FileType gitcommit set norelativenumber
