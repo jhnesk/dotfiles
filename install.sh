@@ -14,6 +14,13 @@ popd  > /dev/null
 
 ln -si ${SCRIPT_PATH}/bashrc ${HOME}/.bashrc
 ln -si ${SCRIPT_PATH}/vimrc ${HOME}/.vimrc
-ln -si ${SCRIPT_PATH}/vim ${HOME}/.vim
+
+mkdir -p ${HOME}/.vim/ftplugin
+
+for file in ${SCRIPT_PATH}/vim/ftplugin/*.vim
+do
+	ln -si $file ${HOME}/.vim/ftplugin/
+done
+
 
 
