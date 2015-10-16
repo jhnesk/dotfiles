@@ -1,25 +1,21 @@
-dotfiles
-========
+# dotfiles
 
 My dotfiles.
 
 See <https://dotfiles.github.io/> for more.
 
-Installation
-------------
+## Installation
 
 I have made a very simple shell script for installation, creating
-symlinks.
+symlinks. To install, clone the repository and run this script.
 
-1. Clone the repository.
-	git clone git@github.com:jhnesk/dotfiles.git
-2. Change directory.
-	cd dotfiles
-3. Run install script.
-	./install.sh
+```
+git clone git@github.com:jhnesk/dotfiles.git
+cd dotfiles
+./install.sh
+```
 
-Unlicense
----------
+## Unlicense
 
 Released into the public domain.
 See <http://unlicense.org/>
