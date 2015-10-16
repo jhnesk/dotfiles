@@ -8,8 +8,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'SirVer/ultisnips'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'sjl/gundo.vim'
 
-" All of your Plugins must be added before the following line
 call vundle#end()
 filetype plugin indent on
 
@@ -67,6 +69,9 @@ set smarttab
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SHORTCUTS:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <F1> :NERDTreeToggle<CR>
+map <F2> :GundoToggle<CR>
+
 map <F5> :make<CR>
 map <F12> :ctags -R .<CR>
 
@@ -76,3 +81,4 @@ map F :let &fen = !&fen<CR>
 " Open quick fix window on error
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
