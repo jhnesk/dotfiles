@@ -10,6 +10,3 @@ for i in ~/.bash/* ; do
 		. $i
 	fi
 done
-
-export EDITOR=vim
-export PATH=$PATH:~/bin
