@@ -1,13 +1,25 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BASICS:
+" PLUGINS:
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'SirVer/ultisnips'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+filetype plugin indent on
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BASICS:
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set history=400 " how many lines of history to remember, default 20
 set showcmd		" Show (partial) command in status line.
 set autowrite		" Automatically save before commands like :next and :make
-
-filetype plugin on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INTERFACE:
@@ -51,7 +63,6 @@ set autoindent
 set smartindent
 set cindent
 set smarttab
-filetype plugin indent on
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SHORTCUTS:

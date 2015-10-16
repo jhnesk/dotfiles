@@ -29,3 +29,6 @@ do
 	ln -si $file ${HOME}/.vim/ftplugin/
 done
 
+mkdir -p ${HOME}/.vim/bundle
+ln -si ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/
+
