@@ -1,7 +1,8 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGINS:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" .vimrc
+
 set nocompatible
+
+" Plugins
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -11,72 +12,67 @@ Plugin 'SirVer/ultisnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
-Plugin 'bling/vim-airline'
 
 call vundle#end()
-filetype plugin indent on
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BASICS:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set history=400 " how many lines of history to remember, default 20
-set showcmd		" Show (partial) command in status line.
-set autowrite		" Automatically save before commands like :next and :make
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" INTERFACE:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-set background=dark
-syntax on
 filetype on
-set laststatus=2 " always show statusline
-set ruler " show the ruler
-set virtualedit+=block " allow virtual block mode to go outside lines
+filetype plugin on
+filetype indent on
+
+syntax on
+set history=400
+set showcmd
+set autowrite
+set hidden
+set virtualedit+=block
+set mouse=a
+set scrolloff=4
+set backspace=indent,eol,start
+set showmatch
+set wildmenu
+set wildmode=list:longest
+set title
+
+runtime macros/matchit.vim
+
+let mapleader = ","
+
+" Status line
+set laststatus=2
+set ruler
+
+" Interface
+set background=dark
 set relativenumber
 set number
 
-" jump to last position when reopening a file:
+" Jump to last position when reopening a file:
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SEARCHING:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Searching
 set magic " use expressions in patterns by default
 set hlsearch " highlight search terms
 set incsearch		" Incremental search
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
+set ignorecase
+set smartcase		" Do smart case matching
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MOVING:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set mouse=a		" Enable mouse usage (all modes)
-set scrolloff=4 " keep the cursor atleast x rows from the edge when scrolling
-set backspace=2 " backspace can join lines
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" INDENTING:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indenting
 set tabstop=4
 set shiftwidth=4
-set noexpandtab " tabs are tabs, not spaces
+set noexpandtab
 set autoindent
 set smartindent
 set cindent
 set smarttab
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SHORTCUTS:
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shortcuts
 map <F1> :NERDTreeToggle<CR>
 map <F2> :GundoToggle<CR>
 
 map <F5> :make<CR>
-map <F12> :ctags -R .<CR>
 
-" fold/unfold all folds...
+nmap <leader>t :tabnew<CR>
+
+" fold/unfold all folds
 map F :let &fen = !&fen<CR>
 
 " Open quick fix window on error
