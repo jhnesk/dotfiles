@@ -11,6 +11,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'bling/vim-airline'
 
 call vundle#end()
 filetype plugin indent on
