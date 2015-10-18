@@ -1,22 +1,24 @@
 #!/usr/bin/env bash
 #
-#
 
 SCRIPT_PATH="${BASH_SOURCE[0]}";
-if ([ -h "${SCRIPT_PATH}" ]) then
-  while([ -h "${SCRIPT_PATH}" ]) do SCRIPT_PATH=`readlink "${SCRIPT_PATH}"`; done
-fi
+while [ -h "${SCRIPT_PATH}" ]
+do
+	SCRIPT_PATH=$(readlink "${SCRIPT_PATH}")
+done
 pushd . > /dev/null
-cd `dirname ${SCRIPT_PATH}` > /dev/null
-SCRIPT_PATH=`pwd`;
+cd $(dirname ${SCRIPT_PATH}) > /dev/null
+SCRIPT_PATH=$(pwd);
 popd  > /dev/null
 
 Link()
 {
-	if [ ! -e ${2} -o -L ${2} ]; then
-		ln -sif ${1} ${2}
+	target=${1}
+	link=${2}
+	if [ ! -e ${link} -o -L ${link} ]; then
+		ln -snif ${target} ${link}
 	else
-		echo "Warning: ${2} is an existing file. No link created."
+		echo "Warning: ${link} is an existing file. No link created."
 	fi
 }
 
