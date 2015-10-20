@@ -3,6 +3,7 @@
 set nocompatible
 
 " Plugins
+"""""""""
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
@@ -14,48 +15,64 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 
 call vundle#end()
+
 filetype on
 filetype plugin on
 filetype indent on
-
 syntax on
-set history=400
-set showcmd
-set autowrite
-set hidden
-set virtualedit+=block
+
+" Basic
+"""""""
+
+set background=dark
+set title
 set mouse=a
+set relativenumber
+set number
+set virtualedit+=block
 set scrolloff=4
 set backspace=indent,eol,start
 set showmatch
-set wildmenu
-set wildmode=list:longest
-set title
 
-runtime macros/matchit.vim
+set spellfile=~/.vim/spell/words.utf-8.add
 
-let mapleader = ","
+" Buffers
+"""""""""
+
+set autowrite
+set hidden
 
 " Status line
+"""""""""""""
+
 set laststatus=2
 set ruler
 
-" Interface
-set background=dark
-set relativenumber
-set number
+" Command
+"""""""""
 
-" Jump to last position when reopening a file:
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+set history=400
+set showcmd
+set wildmenu
+set wildmode=list:longest
 
 " Searching
-set magic " use expressions in patterns by default
-set hlsearch " highlight search terms
-set incsearch		" Incremental search
+"""""""""""
+
+" Use expressions in patterns by default
+set magic
+" Highlight search terms
+set hlsearch
+" Incremental search
+set incsearch
+" Case insensitive
 set ignorecase
-set smartcase		" Do smart case matching
+" Smart case matching
+set smartcase
 
 " Indenting
+"""""""""""
+
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
@@ -64,18 +81,27 @@ set smartindent
 set cindent
 set smarttab
 
-" Shortcuts
-map <F1> :NERDTreeToggle<CR>
-map <F2> :GundoToggle<CR>
+" Extra
+"""""""
 
-map <F5> :make<CR>
+" Extended % matching
+runtime macros/matchit.vim
 
-nmap <leader>t :tabnew<CR>
-
-" fold/unfold all folds
-map F :let &fen = !&fen<CR>
+" Jump to last position when reopening a file
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Open quick fix window on error
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
+
+" Shortcuts
+"""""""""""
+
+let mapleader = ","
+
+map <F1> :NERDTreeToggle<CR>
+map <F2> :GundoToggle<CR>
+map <F5> :make<CR>
+
+nmap <leader>t :tabnew<CR>
 

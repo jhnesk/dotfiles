@@ -45,6 +45,7 @@ LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/init/*.sh
 mkdir -p ${HOME}/.vim
 Link ${SCRIPT_PATH}/vim/vimrc ${HOME}/.vimrc
 LinkAll ${HOME}/.vim/ftplugin ${SCRIPT_PATH}/vim/ftplugin/*.vim
+LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
 
 mkdir -p ${HOME}/.vim/bundle
 Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
