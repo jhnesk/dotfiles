@@ -50,3 +50,5 @@ LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
 mkdir -p ${HOME}/.vim/bundle
 Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
 
+LinkAll ${HOME}/.gnupg ${SCRIPT_PATH}/gnupg/*
+
