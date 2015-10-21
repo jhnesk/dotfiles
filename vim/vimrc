@@ -36,6 +36,8 @@ set showmatch
 
 set spellfile=~/.vim/spell/words.utf-8.add
 
+set wildignore+=*.class,*.zip,*.so,*.o
+
 " Buffers
 """""""""
 
@@ -104,4 +106,5 @@ map <F2> :GundoToggle<CR>
 map <F5> :make<CR>
 
 nmap <leader>t :tabnew<CR>
+nmap <leader>f :NERDTreeFind<CR>
 
