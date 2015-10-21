@@ -1,0 +1,13 @@
+[color]
+	ui = true
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[branch]
+	branch = true
+[alias]
+	rv = "!git review $(git rev-parse --abbrev-ref HEAD | sed 's/^\\(.*\\)_[0-9]\\{5\\}.*$/\\1/')"
+[gitreview]
+	remote = origin
+	rebase = false

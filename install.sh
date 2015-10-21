@@ -52,3 +52,5 @@ Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
 
 LinkAll ${HOME}/.gnupg ${SCRIPT_PATH}/gnupg/*
 
+Link ${SCRIPT_PATH}/git/config ${HOME}/.gitconfig
+
