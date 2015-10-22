@@ -39,18 +39,35 @@ LinkAll()
 	done
 }
 
-Link ${SCRIPT_PATH}/bash/bashrc ${HOME}/.bashrc
-LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/init/*.sh
+Bash()
+{
+	Link ${SCRIPT_PATH}/bash/bashrc ${HOME}/.bashrc
+	LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/init/*.sh
+}
 
-mkdir -p ${HOME}/.vim
-Link ${SCRIPT_PATH}/vim/vimrc ${HOME}/.vimrc
-LinkAll ${HOME}/.vim/ftplugin ${SCRIPT_PATH}/vim/ftplugin/*.vim
-LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
+Vim()
+{
+	mkdir -p ${HOME}/.vim
+	Link ${SCRIPT_PATH}/vim/vimrc ${HOME}/.vimrc
+	LinkAll ${HOME}/.vim/ftplugin ${SCRIPT_PATH}/vim/ftplugin/*.vim
+	LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
 
-mkdir -p ${HOME}/.vim/bundle
-Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
+	mkdir -p ${HOME}/.vim/bundle
+	Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
+}
 
-LinkAll ${HOME}/.gnupg ${SCRIPT_PATH}/gnupg/*
+GnuPG()
+{
+	LinkAll ${HOME}/.gnupg ${SCRIPT_PATH}/gnupg/*
+}
 
-Link ${SCRIPT_PATH}/git/config ${HOME}/.gitconfig
+Git()
+{
+	Link ${SCRIPT_PATH}/git/config ${HOME}/.gitconfig
+}
+
+Bash
+Vim
+GnuPG
+Git
 
