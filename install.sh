@@ -67,8 +67,14 @@ Git()
 	Link ${SCRIPT_PATH}/git/config ${HOME}/.gitconfig
 }
 
+Bin()
+{
+	LinkAll ${HOME}/bin ${SCRIPT_PATH}/bin/*
+}
+
 Bash
 Vim
 GnuPG
 Git
+Bin
 

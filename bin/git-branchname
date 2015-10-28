@@ -1,0 +1,13 @@
+#!/bin/sh
+
+BRANCHNAME=$(git rev-parse --abbrev-ref HEAD)
+ISSUEID=$(echo $BRANCHNAME | sed 's/.*\([0-9][0-9][0-9][0-9][0-9]\).*/\1/')
+SUBJECT=$(echo $BRANCHNAME | sed "s/.*$ISSUEID\(.*\)/\1/" | sed 's/_/ /g' | sed 's/ \(.\)/\u\1/')
+
+case $1 in
+	issueid) echo ${ISSUEID}
+		;;
+	subject) echo ${SUBJECT}
+		;;
+esac
+
