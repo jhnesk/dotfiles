@@ -11,3 +11,5 @@
 [gitreview]
 	remote = origin
 	rebase = false
+[include]
+	path = ./.gitconfig-exclusive
