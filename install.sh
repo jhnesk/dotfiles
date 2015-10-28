@@ -51,6 +51,7 @@ Vim()
 	Link ${SCRIPT_PATH}/vim/vimrc ${HOME}/.vimrc
 	LinkAll ${HOME}/.vim/ftplugin ${SCRIPT_PATH}/vim/ftplugin/*.vim
 	LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
+	LinkAll ${HOME}/.vim/UltiSnips ${SCRIPT_PATH}/vim/UltiSnips/*.snippets
 
 	mkdir -p ${HOME}/.vim/bundle
 	Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
