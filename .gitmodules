@@ -1,3 +1,6 @@
 [submodule "vim/Vundle.vim"]
 	path = vim/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "pass/password-store"]
+	path = pass/password-store
+	url = git@bitbucket.org:jhnesk/pass.git
