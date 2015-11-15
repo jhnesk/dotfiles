@@ -42,7 +42,7 @@ LinkAll()
 Bash()
 {
 	Link ${SCRIPT_PATH}/bash/bashrc ${HOME}/.bashrc
-	LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/init/*.sh
+	LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/include/*.sh
 }
 
 Vim()
