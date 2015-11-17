@@ -7,7 +7,8 @@
 [branch]
 	branch = true
 [alias]
-	rv = "!git review $(git rev-parse --abbrev-ref HEAD | sed 's/^\\(.*\\)_[0-9]\\{5\\}.*$/\\1/')"
+	amend=commit --amend -C HEAD
+	rv = "!git review $(git branchname base)"
 [gitreview]
 	remote = origin
 	rebase = false
