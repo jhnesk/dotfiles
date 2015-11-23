@@ -72,15 +72,9 @@ Bin()
 	LinkAll ${HOME}/bin ${SCRIPT_PATH}/bin/*
 }
 
-Pass()
-{
-	Link ${SCRIPT_PATH}/pass/password-store ${HOME}/.password-store
-}
-
 Bash
 Vim
 GnuPG
 Git
 Bin
-Pass
 
