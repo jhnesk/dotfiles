@@ -15,6 +15,23 @@ cd dotfiles
 ./install.sh
 ```
 
+## Dependencies
+
+List of configured applications.
+
+- bash
+- vim
+- git
+- tmux
+- gnupg
+
+Other dependencies and tools used.
+
+- coreutils
+- grep
+- sed
+- xclip
+
 ## Unlicense
 
 Released into the public domain.
