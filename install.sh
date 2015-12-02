@@ -73,9 +73,23 @@ Bin()
 	LinkAll ${HOME}/bin ${SCRIPT_PATH}/bin/*
 }
 
+Tmux()
+{
+	mkdir -p ${HOME}/.tmux
+	Link ${SCRIPT_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
+	LinkAll ${HOME}/.tmux ${SCRIPT_PATH}/tmux/include/*.conf
+
+	# Create include file
+	for file in ${HOME}/.tmux/*.conf
+	do
+		echo "source ${file}"
+	done > ~/.tmux/tmux.include
+}
+
 Bash
 Vim
 GnuPG
 Git
 Bin
+Tmux
 
