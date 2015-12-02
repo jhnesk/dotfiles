@@ -13,4 +13,4 @@
 	remote = origin
 	rebase = false
 [include]
-	path = ./.gitconfig-exclusive
+	path = ./.gitconfig.local
