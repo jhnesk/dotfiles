@@ -42,6 +42,7 @@ LinkAll()
 Bash()
 {
 	Link ${SCRIPT_PATH}/bash/bashrc ${HOME}/.bashrc
+	Link ${SCRIPT_PATH}/bash/bash_profile ${HOME}/.bash_profile
 	LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/include/*.sh
 }
 
