@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# Simple front-end for pass to copy password to clipboard
+#
+ZENITY=$(which zenity)
+PASS=$(which pass)
+TITLE="Enter pass-name"
+
+PASSNAME=$(${ZENITY} --entry --text "${TITLE}")
+
+if [ "${PASSNAME}" ]
+then
+	OUTPUT=$((${PASS} show -c ${PASSNAME}) 2>&1)
+	if [ $? ]
+	then
+		$ZENITY --error --text "$OUTPUT"
+	fi
+fi

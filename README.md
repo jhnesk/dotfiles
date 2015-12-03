@@ -1,6 +1,6 @@
 # dotfiles
 
-My dotfiles.
+My dotfiles for Arch Linux. For inspiration and reference.
 
 See <https://dotfiles.github.io/> for more.
 
@@ -31,6 +31,7 @@ Other dependencies and tools used.
 - grep
 - sed
 - xclip
+- zenity
 
 ## Unlicense
 
