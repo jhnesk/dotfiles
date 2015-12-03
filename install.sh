@@ -13,8 +13,9 @@ popd  > /dev/null
 
 Link()
 {
-	target=${1}
-	link=${2}
+	target="${SCRIPT_PATH}/${1}"
+	link="${HOME}/${2}"
+	mkdir -p $(dirname ${link})
 	if [ ! -e ${link} -o -L ${link} ]; then
 		ln -snif ${target} ${link}
 	else
@@ -24,7 +25,8 @@ Link()
 
 LinkAll()
 {
-	dir=${1}
+	pattern="${SCRIPT_PATH}/${1}"
+	dir="${HOME}/${2}"
 	if [ ! -e ${dir} ]; then
 		mkdir -p ${dir}
 	fi
@@ -33,63 +35,40 @@ LinkAll()
 		return
 	fi
 
-	for file in ${@:2}
+	for file in ${pattern}
 	do
 		Link ${file} ${dir}/$(basename ${file})
 	done
 }
 
-Bash()
-{
-	Link ${SCRIPT_PATH}/bash/bashrc ${HOME}/.bashrc
-	Link ${SCRIPT_PATH}/bash/bash_profile ${HOME}/.bash_profile
-	LinkAll ${HOME}/.bash ${SCRIPT_PATH}/bash/include/*.sh
-}
+# bash
+Link bash/bashrc .bashrc
+Link bash/bash_profile .bash_profile
+LinkAll "bash/include/*.sh" .bash
 
-Vim()
-{
-	mkdir -p ${HOME}/.vim
-	Link ${SCRIPT_PATH}/vim/vimrc ${HOME}/.vimrc
-	LinkAll ${HOME}/.vim/ftplugin ${SCRIPT_PATH}/vim/ftplugin/*.vim
-	LinkAll ${HOME}/.vim/spell ${SCRIPT_PATH}/vim/spell/*
-	LinkAll ${HOME}/.vim/UltiSnips ${SCRIPT_PATH}/vim/UltiSnips/*.snippets
+# vim
+Link vim/vimrc .vimrc
+LinkAll "vim/ftplugin/*.vim" .vim/ftplugin
+LinkAll "vim/spell/*" .vim/spell
+LinkAll "vim/UltiSnips/*.snippets" .vim/UltiSnips
+Link vim/Vundle.vim .vim/bundle/Vundle.vim
 
-	mkdir -p ${HOME}/.vim/bundle
-	Link ${SCRIPT_PATH}/vim/Vundle.vim ${HOME}/.vim/bundle/Vundle.vim
-}
+# gnupg
+LinkAll "gnupg/*" .gnupg
 
-GnuPG()
-{
-	LinkAll ${HOME}/.gnupg ${SCRIPT_PATH}/gnupg/*
-}
+# git
+Link git/config .gitconfig
 
-Git()
-{
-	Link ${SCRIPT_PATH}/git/config ${HOME}/.gitconfig
-}
+# bin
+LinkAll "bin/*" bin
 
-Bin()
-{
-	LinkAll ${HOME}/bin ${SCRIPT_PATH}/bin/*
-}
+# tmux
+Link tmux/tmux.conf .tmux.conf
+LinkAll "tmux/include/*.conf" .tmux
 
-Tmux()
-{
-	mkdir -p ${HOME}/.tmux
-	Link ${SCRIPT_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
-	LinkAll ${HOME}/.tmux ${SCRIPT_PATH}/tmux/include/*.conf
-
-	# Create include file
-	for file in ${HOME}/.tmux/*.conf
-	do
-		echo "source ${file}"
-	done > ~/.tmux/tmux.include
-}
-
-Bash
-Vim
-GnuPG
-Git
-Bin
-Tmux
+# Create include file for tmux
+for file in ${HOME}/.tmux/*.conf
+do
+	echo "source ${file}"
+done > ~/.tmux/tmux.include
 
