@@ -11,10 +11,21 @@ cd $(dirname ${SCRIPT_PATH}) > /dev/null
 SCRIPT_PATH=$(pwd);
 popd  > /dev/null
 
+PrependIfMissing()
+{
+	if [[ "${1}" =~ ^${2}.* ]]
+	then
+		echo "${1}"
+	else
+		echo "${2}/${1}"
+	fi
+}
+
 Link()
 {
-	target="${SCRIPT_PATH}/${1}"
-	link="${HOME}/${2}"
+	target=$(PrependIfMissing ${1} ${SCRIPT_PATH})
+	link=$(PrependIfMissing ${2} ${HOME})
+
 	mkdir -p $(dirname ${link})
 	if [ ! -e ${link} -o -L ${link} ]; then
 		ln -snif ${target} ${link}
