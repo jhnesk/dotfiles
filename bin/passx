@@ -10,9 +10,9 @@ PASSNAME=$(${ZENITY} --entry --text "${TITLE}")
 
 if [ "${PASSNAME}" ]
 then
-	OUTPUT=$((${PASS} show -c ${PASSNAME}) 2>&1)
-	if [ $? ]
+	${PASS} show -c "${PASSNAME}"
+	if [ $? -ne 0 ]
 	then
-		$ZENITY --error --text "$OUTPUT"
+		$ZENITY --error
 	fi
 fi
