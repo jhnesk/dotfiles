@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+#
+# Mark a portion of the screen for a screenshot and this script copies
+# any readable text to the clipboard using OCR.
+#
+IMAGE=$(mktemp --suffix=.png)
+import ${IMAGE}
+gocr ${IMAGE} | xclip -sel clip
+rm ${IMAGE}
