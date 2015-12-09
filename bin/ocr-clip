@@ -3,7 +3,19 @@
 # Mark a portion of the screen for a screenshot and this script copies
 # any readable text to the clipboard using OCR.
 #
+SCALE="1000%"
+SIGMA="4.0"
+CLIPBOARD="clipboard"
+
+CONVERT=$(which convert)
+IMPORT=$(which import)
+OCR=$(which gocr)
+XCLIP=$(which xclip)
+
 IMAGE=$(mktemp --suffix=.png)
-import ${IMAGE}
-gocr ${IMAGE} | xclip -sel clip
-rm ${IMAGE}
+CONVERTED=$(mktemp --suffix=.png)
+
+${IMPORT} ${IMAGE}
+${CONVERT} -resize "${SCALE}" -sharpen "0x${SIGMA}" ${IMAGE} ${CONVERTED}
+${OCR} ${CONVERTED} | ${XCLIP} -sel ${CLIPBOARD}
+rm ${IMAGE} ${CONVERTED}
