@@ -32,6 +32,8 @@ Other dependencies and tools used.
 - sed
 - xclip
 - zenity
+- imagemagick 
+- gocr
 
 ## Unlicense
 
