@@ -33,7 +33,7 @@ Other dependencies and tools used.
 - xclip
 - zenity
 - imagemagick 
-- gocr
+- tesseract
 
 ## Unlicense
 

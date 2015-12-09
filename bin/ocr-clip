@@ -9,7 +9,7 @@ CLIPBOARD="clipboard"
 
 CONVERT=$(which convert)
 IMPORT=$(which import)
-OCR=$(which gocr)
+OCR=$(which tesseract)
 XCLIP=$(which xclip)
 
 IMAGE=$(mktemp --suffix=.png)
@@ -17,5 +17,5 @@ CONVERTED=$(mktemp --suffix=.png)
 
 ${IMPORT} ${IMAGE}
 ${CONVERT} -resize "${SCALE}" -sharpen "0x${SIGMA}" ${IMAGE} ${CONVERTED}
-${OCR} ${CONVERTED} | ${XCLIP} -sel ${CLIPBOARD}
+${OCR} ${CONVERTED} stdout -psm 7| ${XCLIP} -sel ${CLIPBOARD}
 rm ${IMAGE} ${CONVERTED}
