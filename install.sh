@@ -52,6 +52,9 @@ LinkAll()
 	done
 }
 
+# env
+Link env/profile .profile
+
 # bash
 Link bash/bashrc .bashrc
 Link bash/bash_profile .bash_profile
