@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
-if [ ! -d .git ]; then
-	echo "Not a git repository"
-	exit 1
-fi
-
 GITDIR=$(git rev-parse --git-dir)
 TEMPFILE="${GITDIR}/$$.tags"
 TAGSFILE="${GITDIR}/tags"
 LOCKFILE="${GITDIR}/tags_lock"
+
+if [ ! -d ${GITDIR} ]; then
+	echo "Not the root of a git repository"
+	exit 1
+fi
 
 # Lock
 mkdir ${LOCKFILE} 2>/dev/null || exit 0
