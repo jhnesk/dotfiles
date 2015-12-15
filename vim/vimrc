@@ -93,6 +93,9 @@ runtime macros/matchit.vim
 " Jump to last position when reopening a file
 autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+" Write file as root
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
+
 " Open quick fix window on error
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
