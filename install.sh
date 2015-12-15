@@ -72,6 +72,7 @@ LinkAll "gnupg/*" .gnupg
 
 # git
 Link git/config .gitconfig
+LinkAll "git/template/hooks/*" .git_template/hooks
 
 # bin
 LinkAll "bin/*" bin
