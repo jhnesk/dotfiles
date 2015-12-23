@@ -52,6 +52,12 @@ LinkAll()
 	done
 }
 
+echo "Installing core applications"
+sudo pacman -S --needed - < applications/core
+echo "Installing desktop applications"
+sudo pacman -S --needed - < applications/desktop
+
+echo "Creating symlinks and directories"
 # env
 Link env/profile .profile
 
