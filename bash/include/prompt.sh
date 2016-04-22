@@ -1,4 +1,4 @@
-PS1_BASE="${BWhite}\u@\h${Color_Off} \W"
+PS1_BASE="${BWhite}\u@\h${Color_Off} \w"
 
 if [ -r /usr/share/git/git-prompt.sh ]; then
 	. /usr/share/git/git-prompt.sh
