@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+#
+# Run ./gradlew if available and fallback to gradle if not.
+#
+
+if command -v ./gradlew >/dev/null; then
+	./gradlew "$@"
+else
+	gradle "$@"
+fi
+
