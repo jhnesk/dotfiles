@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-surround'
 
 call vundle#end()
 
