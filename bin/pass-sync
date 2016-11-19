@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+pass git pull --rebase
+pass git push origin master
