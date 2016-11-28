@@ -38,3 +38,8 @@ iputils
 mlocate
 python-sqlparse
 gnu-netcat
+bc
+whois
+which
+vi
+valgrind
