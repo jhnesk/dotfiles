@@ -83,6 +83,8 @@ LinkAll "git/template/hooks/*" .git_template/hooks
 # bin
 LinkAll "bin/*" bin
 
+Link awesome/rc.lua .config/awesome/rc.lua
+
 # tmux
 Link tmux/tmux.conf .tmux.conf
 LinkAll "tmux/include/*.conf" .tmux
