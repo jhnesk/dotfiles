@@ -16,6 +16,7 @@ Plugin 'sjl/gundo.vim'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-surround'
+Plugin 'diepm/vim-rest-console'
 
 call vundle#end()
 
