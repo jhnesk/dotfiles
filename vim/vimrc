@@ -103,6 +103,9 @@ command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 autocmd QuickFixCmdPost [^l]* nested cwindow
 autocmd QuickFixCmdPost    l* nested lwindow
 
+" Filetypes
+au BufNewFile,BufRead Jenkinsfile setf groovy
+
 " Shortcuts
 """""""""""
 
