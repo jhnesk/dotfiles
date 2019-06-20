@@ -7,10 +7,14 @@ SCALE="500%"
 SIGMA="3.0"
 CLIPBOARD="clipboard"
 
-CONVERT=$(which convert)
-IMPORT=$(which import)
-OCR=$(which tesseract)
-XCLIP=$(which xclip)
+CONVERT=$(which convert 2>/dev/null)
+if [ $? -ne 0 ]; then echo "Command \"convert\" not found. Please install ImageMagick."; exit; fi
+IMPORT=$(which import 2>/dev/null)
+if [ $? -ne 0 ]; then echo "Command \"import\" not found. Please install ImageMagick."; exit; fi
+OCR=$(which tesseract 2>/dev/null)
+if [ $? -ne 0 ]; then echo "Command \"tesseract\" not found. Please install tesseract."; exit; fi
+XCLIP=$(which xclip 2>/dev/null)
+if [ $? -ne 0 ]; then echo "Command \"xclip\" not found. Please install xclip."; exit; fi
 
 IMAGE=$(mktemp --suffix=.png)
 trap "rm ${IMAGE}" EXIT
