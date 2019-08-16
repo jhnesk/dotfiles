@@ -58,8 +58,11 @@ echo "Installing desktop applications"
 sudo pacman -S --needed - < applications/desktop
 
 echo "Creating symlinks and directories"
+
 # env
 Link env/profile .profile
+Link env/xinitrc .xinitrc
+LinkAll "env/Xresources.d/*" .Xresources.d
 
 # bash
 Link bash/bashrc .bashrc
@@ -84,6 +87,8 @@ LinkAll "git/template/hooks/*" .git_template/hooks
 LinkAll "bin/*" bin
 
 Link awesome/rc.lua .config/awesome/rc.lua
+
+Link i3/config .config/i3/config
 
 # tmux
 Link tmux/tmux.conf .tmux.conf
