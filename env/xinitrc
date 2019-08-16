@@ -3,3 +3,5 @@ for resource in ~/.Xresources.d/*
 do
 	xrdb -merge -I${HOME} ${resource}
 done
+
+exec i3
