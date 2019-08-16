@@ -24,6 +24,7 @@ List of configured applications.
 - git
 - tmux
 - gnupg
+- i3
 
 Other dependencies and tools used.
 
