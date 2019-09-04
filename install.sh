@@ -83,6 +83,9 @@ LinkAll "gnupg/*" .gnupg
 Link git/config .gitconfig
 LinkAll "git/template/hooks/*" .git_template/hooks
 
+# htop
+Link htop/htoprc .config/htop/htoprc
+
 # bin
 LinkAll "bin/*" bin
 
